@@ -35,16 +35,31 @@
           </tr>
         </thead>
         <tbody>
-          <% data.forEach((item) => { %>
-
+          <% var i=1 %> <% data.forEach((item) => { %>
           <tr>
-            <td>1</td>
-            <td>Deepak</td>
-            <td>34</td>
-            <td>6546.45</td>
+            <td><%= i++ %></td>
+            <td><%= item.name %></td>
+            <td><%= item.age %></td>
+            <td><%= item.fees %></td>
             <td>
-              <i class="fas fa-pen-square text-info"></i>
-              <i class="fas fa-trash text-danger"></i>
+              <form
+                action="/student/edit/<%=item._id %>"
+                method="get"
+                class="d-inline"
+              >
+                <button type="submit" class="btn">
+                  <i class="fas fa-pen-square text-info"></i>
+                </button>
+              </form>
+              <form
+                action="/student/delete/<%=item._id %>"
+                method="post"
+                class="d-inline"
+              >
+                <button type="submit" class="btn">
+                  <i class="fas fa-trash text-danger"></i>
+                </button>
+              </form>
             </td>
           </tr>
           <%}) %>
