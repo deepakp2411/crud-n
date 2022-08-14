@@ -12,6 +12,8 @@ connectDB(DATABASE_URL);
 
 app.use(express.urlencoded({extended:false}))
 
+app.use(express.json())
+
 // static files
 
 app.use('/student',express.static(join(process.cwd(), "public")));
